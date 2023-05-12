@@ -23,4 +23,8 @@ public class Empresa extends Usuario{
     @JoinColumn(name = "empresa")
     private List<Vaga> vagasEmpresa;
 
+    @OneToMany
+    @JoinColumn(name = "empresa")
+    private List<Avaliacao> avaEmpresa;
+
 }
