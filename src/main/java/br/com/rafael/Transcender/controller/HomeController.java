@@ -12,8 +12,8 @@ public class HomeController {
     @GetMapping("")
     public String pageHome(Model model) {
 
-        model.addAttribute("nome",
-                "Zezin da Silva");
+//        model.addAttribute("nome",
+//                "Zezin da Silva");
         return "home";
     }
 }

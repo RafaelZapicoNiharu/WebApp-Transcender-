@@ -1,11 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Transcender</title>
+    <link rel="stylesheet" href="/fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Satisfy&display=swap');
+
+    body::-webkit-scrollbar {
+  width: 0px;
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;     /*#F8F4E3*/
+      background-color: #ececec;
+      overflow: auto;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      background-color: #42A5F5;
+      color: #fff;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .main-content {
+      margin-top: 120px;
+      margin-bottom: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      display: flex;
+    }
+
+    .image {
+      width: 300px;
+      height: auto;
+      margin-right: 20px;
+    }
+
+    .first-half {
+      flex: 1;
+      background-color: #ffffff;
+      padding: 10px;
+    }
+
+    .second-half {
+
+      flex: 2;
+      background-color: #ffffff;
+      padding: 10px;
+      text-align: justify;
+
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      background-color: #42A5F5;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .fa-bars {
+      font-size: 28px;
+      margin-right: 4vw;
+    }
+    .main-content2 {
+      margin-top: 20px;
+      margin-bottom: 90px;
+      margin-left: 20px;
+      margin-right: 20px;
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      display: flex;
+    }
+  </style>
 </head>
 <body>
-<h1 th:text="${nome+ ' Bem vindo'}" >TESTE</h1>
 
+<div class="top-bar">
+    <h1 style="margin-left: 2vw; font-family: 'Courgette', sans-serif;">Transcender</h1>
+    <i class="fas fa-bars" style="color: #ffffff;"></i>
+
+</div>
+
+<div class="main-content">
+    <div class="first-half">
+        <img class="image" src="./img/undraw_interview_re_e5jn.svg" alt="Imagem">
+
+    </div>
+    <div class="second-half">
+        <h2 style=" font-family: 'Courgette', sans-serif; text-align: center;">Bem-vinde ao Transcender!</h2>
+        <p>       Somos uma plataforma que visa promover a inclusão e igualdade de oportunidades no mercado de trabalho para pessoas transgênero. Conectamos empresas comprometidas com a diversidade a talentos trans talentosos em busca de emprego. Aqui, você encontrará uma variedade de vagas inclusivas e um ambiente acolhedor, onde cada indivíduo pode ser autêntico e valorizado. Junte-se a nós e faça parte da transformação rumo a um futuro profissional mais inclusivo e diversificado.</p>
+    </div>
+</div>
+
+<div class="main-content2">
+    <div class="first-half">
+        <img class="image" src="./img/undraw_interview_re_e5jn.svg" alt="Imagem">
+
+    </div>
+    <div class="second-half">
+        <h2 style=" font-family: 'Courgette', sans-serif; text-align: center;">Bem-vinde ao Transcender!</h2>
+        <p>       Somos uma plataforma que visa promover a inclusão e igualdade de oportunidades no mercado de trabalho para pessoas transgênero. Conectamos empresas comprometidas com a diversidade a talentos trans talentosos em busca de emprego. Aqui, você encontrará uma variedade de vagas inclusivas e um ambiente acolhedor, onde cada indivíduo pode ser autêntico e valorizado. Junte-se a nós e faça parte da transformação rumo a um futuro profissional mais inclusivo e diversificado.</p>
+    </div>
+</div>
+
+
+
+<div class="footer">
+    <p>@NiharuDev - Transcender</p>
+</div>
 </body>
 </html>
