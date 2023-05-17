@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Transcender</title>
-    <link rel="stylesheet" href="/fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css">
-    <style>
+  <title>Transcender</title>
+  <link rel="stylesheet" href="/fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css">
+  <style>
     @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Satisfy&display=swap');
 
     body::-webkit-scrollbar {
-  width: 0px;
-  background-color: transparent;
-}
+      width: 0px;
+      background-color: transparent;
+    }
 
-body::-webkit-scrollbar-thumb {
-  background-color: transparent;
-}
+    body::-webkit-scrollbar-thumb {
+      background-color: transparent;
+    }
 
-body::-webkit-scrollbar-track {
-  background-color: transparent;
-}
+    body::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;     /*#F8F4E3*/
+      font-family: Arial, sans-serif;
+      /*#F8F4E3*/
       background-color: #ececec;
       overflow: auto;
     }
@@ -40,7 +43,7 @@ body::-webkit-scrollbar-track {
       align-items: center;
     }
 
-    .main-content {
+    .login {
       margin-top: 120px;
       margin-bottom: 20px;
       margin-left: 20px;
@@ -85,10 +88,6 @@ body::-webkit-scrollbar-track {
       box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
     }
 
-    .fa-bars {
-      font-size: 28px;
-      margin-right: 4vw;
-    }
     .main-content2 {
       margin-top: 20px;
       margin-bottom: 90px;
@@ -100,42 +99,142 @@ body::-webkit-scrollbar-track {
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       display: flex;
     }
+
+    .fa-solid {
+      font-size: 28px;
+      margin-right: 3.5vw;
+      color: rgb(255, 255, 255);
+    }
+
+    .fa-solid:hover {
+      color: rgb(236, 231, 231);
+      cursor: pointer;
+    }
+
+    .top-bar h1 {
+      margin-left: 2vw;
+      font-family: 'Courgette', sans-serif;
+      cursor: pointer;
+    }
+
+    .top-bar h1:hover {
+      text-shadow: 3px 3px 0 #ffb9c5;
+    }
+
+    /* Novo estilo para o ícone do sol */
+    .fa-sun {
+      display: none;
+    }
+
+    .sun-active .fa-moon {
+      display: none;
+    }
+
+    .sun-active .fa-sun {
+      display: inline-block;
+    }
+
+    .form-login {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-login label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .form-login input[type="email"],
+    .form-login input[type="password"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    .form-login button[type="submit"] {
+      background-color: #ffb9c5;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form-login button[type="submit"]:hover {
+      background-color: #ffb9c5;
+    }
+    .cad-butt{
+      margin-bottom: 10px;
+      text-align: center;
+    }
+   
   </style>
 </head>
+
 <body>
 
-<div class="top-bar">
-    <h1 style="margin-left: 2vw; font-family: 'Courgette', sans-serif;">Transcender</h1>
-    <i class="fas fa-bars" style="color: #ffffff;"></i>
+  <div class="top-bar">
+    <h1>Transcender</h1>
+    <div class="icons">
+      <i class="fa-solid fa-right-to-bracket"></i>
+      <i class="fa-solid fa-moon" onclick="toggleSunIcon(event)"></i>
+      <i class="fa-solid fa-sun" onclick="toggleSunIcon(event)"></i>
+    </div>
+  </div>
 
-</div>
+  <div class="login">
+   
+      <div class="first-half">
+        <img class="image1" src="./img/undraw_appreciation_rgtt (1).svg" alt="Imagem">
+      </div>
 
-<div class="main-content">
+      <div class="second-half">
+
+        <h2 style="font-family: 'Courgette', sans-serif; text-align: center;">Faça Login!</h2>
+
+        <form action="" method="POST" class="form-login">
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required> 
+
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" required>
+
+          <button type="submit">Entrar</button>
+          
+        </form>
+        <p class = "cad-butt">Não possui uma conta? <a href="cadastro.html">Cadastre-se</a>.</p>
+      
+
+      </div>
+    
+  </div>
+
+  <div class="main-content2">
     <div class="first-half">
-        <img class="image" src="./img/undraw_interview_re_e5jn.svg" alt="Imagem">
-
+      <img class="image" src="./img/undraw_interview_re_e5jn.svg" alt="Imagem">
     </div>
     <div class="second-half">
-        <h2 style=" font-family: 'Courgette', sans-serif; text-align: center;">Bem-vinde ao Transcender!</h2>
-        <p>       Somos uma plataforma que visa promover a inclusão e igualdade de oportunidades no mercado de trabalho para pessoas transgênero. Conectamos empresas comprometidas com a diversidade a talentos trans talentosos em busca de emprego. Aqui, você encontrará uma variedade de vagas inclusivas e um ambiente acolhedor, onde cada indivíduo pode ser autêntico e valorizado. Junte-se a nós e faça parte da transformação rumo a um futuro profissional mais inclusivo e diversificado.</p>
+      <h2 style="font-family: 'Courgette', sans-serif; text-align: center;">Bem-vinde ao Transcender!</h2>
+      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris gravida quam et turpis aliquam, id sagittis lacus congue. Nulla facilisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam et fermentum lectus. Nunc id risus ut est pretium rhoncus. Aliquam fringilla, sapien vel vehicula lobortis, nulla ligula varius mi, vel varius ex tellus sit amet metus. Suspendisse id purus mattis, maximus neque non, feugiat mauris. </p>
     </div>
-</div>
+  </div>
 
-<div class="main-content2">
-    <div class="first-half">
-        <img class="image" src="./img/undraw_interview_re_e5jn.svg" alt="Imagem">
-
-    </div>
-    <div class="second-half">
-        <h2 style=" font-family: 'Courgette', sans-serif; text-align: center;">Bem-vinde ao Transcender!</h2>
-        <p>       Somos uma plataforma que visa promover a inclusão e igualdade de oportunidades no mercado de trabalho para pessoas transgênero. Conectamos empresas comprometidas com a diversidade a talentos trans talentosos em busca de emprego. Aqui, você encontrará uma variedade de vagas inclusivas e um ambiente acolhedor, onde cada indivíduo pode ser autêntico e valorizado. Junte-se a nós e faça parte da transformação rumo a um futuro profissional mais inclusivo e diversificado.</p>
-    </div>
-</div>
-
-
-
-<div class="footer">
+  <div class="footer">
     <p>@NiharuDev - Transcender</p>
-</div>
+  </div>
+
+  <script>
+    function toggleSunIcon(event) {
+      const icons = document.querySelectorAll('.icons');
+      icons.forEach((icon) => {
+        icon.classList.toggle('sun-active');
+      });
+    }
+  </script>
+
 </body>
+
 </html>
