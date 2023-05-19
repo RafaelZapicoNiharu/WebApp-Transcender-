@@ -12,8 +12,17 @@ public class HomeController {
     @GetMapping("")
     public String pageHome(Model model) {
 
-//        model.addAttribute("nome",
-//                "Zezin da Silva");
-        return "home";
+        return "inicio";
     }
+    @GetMapping("/login")
+    public String pageLogin(Model model) {
+
+        return "login";
+    }
+    @GetMapping("/cadastro")
+    public String pageCadastro(Model model) {
+
+        return "cadastro";
+    }
+
 }
