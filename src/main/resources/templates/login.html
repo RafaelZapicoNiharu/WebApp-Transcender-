@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="home">
+<body>
+
+<div layout:fragment="content">
+
+  <div class="login">
+
+    <div class="first-half">
+      <img class="image1" src="../img/undraw_appreciation_rgtt (1).svg" alt="Imagem">
+    </div>
+
+    <div class="second-half">
+
+      <h2 style="font-family: 'Courgette', sans-serif; text-align: center;">Faça Login!</h2>
+
+      <form action="" method="POST" class="form-login">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+
+        <button type="submit">Entrar</button>
+
+      </form>
+      <p class = "cad-butt">Não possui uma conta? <a href="cadastro.html">Cadastre-se</a>.</p>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
