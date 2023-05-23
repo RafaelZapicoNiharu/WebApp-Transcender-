@@ -14,6 +14,11 @@ public class HomeController {
 
         return "inicio";
     }
+    @GetMapping("homelogado")
+    public String pageHomeLogado(Model model) {
+
+        return "inicio";
+    }
     @GetMapping("/login")
     public String pageLogin(Model model) {
 

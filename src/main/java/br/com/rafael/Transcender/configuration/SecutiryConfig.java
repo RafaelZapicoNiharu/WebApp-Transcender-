@@ -19,7 +19,7 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/home","/css/**","/img/**").permitAll()
+                .antMatchers("/home","/cadastro","/css/**","/img/**","/webjars/**").permitAll()
                 .anyRequest().authenticated().and().formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/home")

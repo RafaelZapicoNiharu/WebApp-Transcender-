@@ -95,7 +95,7 @@
 
     .main-content2 {
       margin-top: 120px;
-     
+
       margin-left: 20px;
       margin-right: 20px;
       background-color: #ffffff;
@@ -167,6 +167,7 @@
     text-decoration:none;
     }
 
+    .form-login input[type="tel"],
     .form-login input[type="text"],
     .form-login input[type="email"],
     .form-login input[type="password"] {
@@ -191,37 +192,36 @@
       margin-bottom: 10px;
       text-align: center;
     }
-   
+
   </style>
 </head>
 
 <body>
 
-  <div class="top-bar">
-    <a class="tituloTemplate" href="/home"><h1>Transcender</h1></a>
-    <div class="icons">
-      <a href="/login"><i class="fa-solid fa-right-to-bracket"></i></a>
-      <i class="fa-solid fa-moon" onclick="toggleSunIcon(event)"></i>
-      <i class="fa-solid fa-sun" onclick="toggleSunIcon(event)"></i>
-    </div>
+<div class="top-bar">
+  <a class="tituloTemplate" href="/home"><h1>Transcender</h1></a>
+  <div class="icons">
+    <a href="/login"><i class="fa-solid fa-right-to-bracket"></i></a>
+    <i class="fa-solid fa-moon" onclick="toggleSunIcon(event)" ></i>
+    <i class="fa-solid fa-sun" onclick="toggleSunIcon(event)" ></i>
   </div>
-
-  <div layout:fragment="content">
-
-  </div>
+</div>
 
 
 
+<div layout:fragment="content">
 
 
+</div>
 
+<div class="footer">
+  <p>@NiharuDev - Transcender</p>
+</div>
 
-  <div class="footer">
-    <p>@NiharuDev - Transcender</p>
-  </div>
- 
-  <script>
+<script>
+
     function toggleSunIcon(event) {
+
       const icons = document.querySelectorAll('.icons');
       icons.forEach((icon) => {
         icon.classList.toggle('sun-active');
