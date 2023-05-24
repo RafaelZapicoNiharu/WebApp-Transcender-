@@ -224,6 +224,7 @@
     function toggleSunIcon(event) {
       const icons = document.querySelectorAll('.icons');
       icons.forEach((icon) => {
+        icon.classList.toggle('dark-mode');
         icon.classList.toggle('sun-active');
       });
     }

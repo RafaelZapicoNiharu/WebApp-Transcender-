@@ -20,14 +20,17 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/home","/cadastro","/css/**","/img/**","/webjars/**").permitAll()
-                .anyRequest().authenticated().and().formLogin()
+                .antMatchers("/mod/**").hasRole("ADMINISTRADOR")
+
+                .anyRequest().authenticated()
+                .and().formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/home")
                 .permitAll().and().logout().logoutUrl("/logout").logoutSuccessUrl("/login")
                 .permitAll();
     }
 
-    @Bean //mana da pra usar isso aqui em todo lugar neah
+    @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
@@ -37,9 +40,10 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder())
                 .withUser("user")
                 .password(passwordEncoder().encode("123"))
-                .roles("PESSOA").authorities("CREATE_USER")
-                .and().withUser("admin")
+                .roles("PESSOA")
+                .and()
+                .withUser("admin")
                 .password(passwordEncoder().encode("123"))
-                .roles("ADMINISTRADOR").authorities("CREATE_USER");
+                .roles("ADMINISTRADOR");
     }
 }
