@@ -203,7 +203,7 @@
       <div class="menu" sec:authorize="isAuthenticated()" >
         <i class="fa-solid fa-bars"></i>
         <div id="menu" class="menuConteudo">
-          <a href="#">Vagas</a>
+          <a href="/mod/home" sec:authorize="hasAnyRole('ADMINISTRADOR','EMPRESA')" >Vagas</a>
           <a href="#">Minhas Vagas</a>
           <a href="#">Perfil</a>
           <a href="#">Sair</a>
