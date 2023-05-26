@@ -199,8 +199,11 @@
 
   <div class="top-bar">
     <a class="tituloTemplate" href="/home"><h1>Transcender</h1></a>
-    <div class="icons">
-      <a href="/login"><i class="fa-solid fa-right-to-bracket"></i></a>
+    <div class="icons" style="display:flex;">
+      <div class="menu" sec:authorize="isAuthenticated()" >
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <a href="/login" sec:authorize="!isAuthenticated()"    ><i class="fa-solid fa-right-to-bracket"></i></a>
       <i class="fa-solid fa-moon" onclick="toggleSunIcon(event)"></i>
       <i class="fa-solid fa-sun" onclick="toggleSunIcon(event)"></i>
     </div>
