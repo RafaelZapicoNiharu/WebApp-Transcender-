@@ -202,6 +202,12 @@
     <div class="icons" style="display:flex;">
       <div class="menu" sec:authorize="isAuthenticated()" >
         <i class="fa-solid fa-bars"></i>
+        <div id="menu" class="menuConteudo">
+          <a href="#">Vagas</a>
+          <a href="#">Minhas Vagas</a>
+          <a href="#">Perfil</a>
+          <a href="#">Sair</a>
+        </div>
       </div>
       <a href="/login" sec:authorize="!isAuthenticated()"    ><i class="fa-solid fa-right-to-bracket"></i></a>
       <i class="fa-solid fa-moon" onclick="toggleSunIcon(event)"></i>
