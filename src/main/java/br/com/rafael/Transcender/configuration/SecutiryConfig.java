@@ -41,9 +41,15 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
                 .withUser("user")
                 .password(passwordEncoder().encode("123"))
                 .roles("PESSOA")
+
                 .and()
                 .withUser("admin")
                 .password(passwordEncoder().encode("123"))
-                .roles("ADMINISTRADOR");
+                .roles("ADMINISTRADOR")
+
+                .and()
+                .withUser("empresa")
+                .password(passwordEncoder().encode("123"))
+                .roles("EMPRESA");
     }
 }
