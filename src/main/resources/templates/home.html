@@ -191,6 +191,26 @@
       margin-bottom: 10px;
       text-align: center;
     }
+    .menuConteudo{
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .menuConteudo a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    }
+    .menuConteudo a:hover {
+    background-color: #f1f1f1;
+    }
+    .show {
+    display: block;
+    }
    
   </style>
 </head>
@@ -201,8 +221,8 @@
     <a class="tituloTemplate" href="/home"><h1>Transcender</h1></a>
     <div class="icons" style="display:flex;">
       <div class="menu" sec:authorize="isAuthenticated()" >
-        <i class="fa-solid fa-bars"></i>
-        <div id="menu" class="menuConteudo">
+        <i class="fa-solid fa-bars"    onclick="toggleDropdown()"      ></i>
+        <div  class="menuConteudo" id="menuzinho">
           <a href="/mod/home" sec:authorize="hasAnyRole('ADMINISTRADOR','EMPRESA')" >Vagas</a>
           <a href="#">Minhas Vagas</a>
           <a href="#">Perfil</a>
@@ -229,7 +249,7 @@
     <p>@NiharuDev - Transcender</p>
   </div>
  
-  <script>
+  <script th:block tag >
     function toggleSunIcon(event) {
       const icons = document.querySelectorAll('.icons');
       icons.forEach((icon) => {
@@ -237,6 +257,24 @@
         icon.classList.toggle('sun-active');
       });
     }
+
+    function toggleDropdown() {
+    var dropdown = document.getElementById("menuzinho");
+    dropdown.classList.toggle("show");
+    }
+
+    window.onclick = function(event) {
+    if (!event.target.matches('.fa-bars')) {
+    var dropdowns = document.getElementsByClassName("menuConteudo");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
   </script>
 
 </body>
