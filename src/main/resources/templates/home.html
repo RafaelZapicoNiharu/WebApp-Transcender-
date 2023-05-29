@@ -194,6 +194,7 @@
     .menuConteudo{
       display: none;
       position: absolute;
+
       background-color: #f9f9f9;
       min-width: 160px;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -223,9 +224,10 @@
       <div class="menu" sec:authorize="isAuthenticated()" >
         <i class="fa-solid fa-bars"    onclick="toggleDropdown()"      ></i>
         <div  class="menuConteudo" id="menuzinho">
-          <a href="/mod/home" sec:authorize="hasAnyRole('ADMINISTRADOR','EMPRESA')" >Vagas</a>
+          <a href="/mod/home" sec:authorize="hasAnyRole('ADMINISTRADOR','EMPRESA')" >Criar Vagas</a>
           <a href="#">Minhas Vagas</a>
-          <a href="#">Perfil</a>
+          <a href="#"    sec:authorize="hasAnyRole('PESSOA','EMPRESA')"   >Perfil</a>
+          <a href="#">Procura</a>
           <a href="#">Sair</a>
         </div>
       </div>
