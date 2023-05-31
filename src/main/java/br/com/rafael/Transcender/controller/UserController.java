@@ -14,4 +14,9 @@ public class UserController {
 
         return "perfilUsuario";
     }
+    @GetMapping("/vaga")
+    public String pageVaga(Model model) {
+
+        return "vaga";
+    }
 }

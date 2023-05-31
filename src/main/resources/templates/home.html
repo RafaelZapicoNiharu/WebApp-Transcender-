@@ -307,7 +307,9 @@
       <div  class="menuConteudo" id="menuzinho">
         <a href="/company/vagas" sec:authorize="hasAnyRole('ADMINISTRADOR','EMPRESA')" >Criar Vagas</a>
         <a href="#">Minhas Vagas</a>
-        <a href="#"    sec:authorize="hasAnyRole('PESSOA','EMPRESA')"   >Perfil</a>
+        <a href="/company/perfil"    sec:authorize="hasRole('EMPRESA')"   >Perfil</a>
+        <a href="/user/perfil"    sec:authorize="hasRole('PESSOA')"   >Meus Dados</a>
+
         <a href="#">Procura</a>
         <a href="#">Sair</a>
       </div>

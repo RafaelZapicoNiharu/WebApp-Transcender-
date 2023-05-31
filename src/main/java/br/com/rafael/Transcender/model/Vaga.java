@@ -22,10 +22,9 @@ public class Vaga {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column(nullable = false)
-    private int numVagas;
-
-    @Column(nullable = false)
     private String titulo;
+    @Column(nullable = false)
+    private int numVagas;
 
     @Column(nullable = false)
     private String linkVaga;
