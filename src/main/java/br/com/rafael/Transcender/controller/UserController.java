@@ -6,17 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(path = {"/company"})
-public class EmpresaController {
+@RequestMapping(path = {"/user"})
+public class UserController {
 
-    @GetMapping("/vagas")
-    public String pageHome(Model model) {
-
-        return "cadastroVaga";
-    }
     @GetMapping("/perfil")
     public String pagePerfil(Model model) {
 
-        return "perfilEmpresa";
+        return "perfilUsuario";
     }
 }
