@@ -267,7 +267,32 @@
       align-self: center;
       margin-left: 10px;
     }
+    .profile .botoes {
+  margin-top: 40px;
+  display: flex;
+  justify-content: left;
+}
 
+.profile button {
+  margin: 0 15px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #42A5F5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.profile button:hover {
+  margin: 0 15px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #3391df;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
   </style>
 </head>
@@ -282,8 +307,7 @@
       <div  class="menuConteudo" id="menuzinho">
         <a href="/company/vagas" sec:authorize="hasAnyRole('ADMINISTRADOR','EMPRESA')" >Criar Vagas</a>
         <a href="#">Minhas Vagas</a>
-        <a href="/company/perfil"    sec:authorize="hasRole('EMPRESA')"   >Perfil</a>
-        <a href="/user/perfil"    sec:authorize="hasRole('PESSOA')"   >Meus Dados</a>
+        <a href="#"    sec:authorize="hasAnyRole('PESSOA','EMPRESA')"   >Perfil</a>
         <a href="#">Procura</a>
         <a href="#">Sair</a>
       </div>
@@ -295,7 +319,6 @@
 </div>
 
 <div layout:fragment="content">
-
 
 
 
