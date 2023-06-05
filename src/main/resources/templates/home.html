@@ -126,6 +126,16 @@
       color: rgb(236, 231, 231);
       cursor: pointer;
     }
+    .deletar {
+      font-size: 16px;
+
+      color: rgb(255, 255, 255);
+    }
+
+    .deletar:hover {
+      color: rgb(236, 231, 231);
+      cursor: pointer;
+    }
 
     .top-bar h1 {
       margin-left: 2vw;
@@ -165,18 +175,32 @@
     .tituloTemplate{
     color:#fff;
     text-decoration:none;
+
     }
 
     .form-login input[type="text"],
     .form-login input[type="email"],
     .form-login input[type="tel"],
-    .form-login input[type="password"] {
+    .form-login input[type="password"],
+    .form-login select{
       width: 100%;
       padding: 5px;
       margin-bottom: 10px;
     }
 
-    .form-login button[type="submit"] {
+     .req{
+      background-color: #ffb9c5;
+      color: white;
+      padding: 10px 20px;
+      margin-right: 5px;
+      margin-left: 5px;
+      border: none;
+      border-radius: 5px;
+
+
+    }
+
+    .form-login button[type="submit"]{
       background-color: #ffb9c5;
       color: white;
       padding: 10px 20px;
@@ -303,13 +327,13 @@
   <a class="tituloTemplate" href="/home"><h1>Transcender</h1></a>
   <div class="icons" style="display:flex;">
     <div class="menu" sec:authorize="isAuthenticated()" >
-      <i class="fa-solid fa-bars"    onclick="toggleDropdown()"      ></i>
+      <i class="fa-solid fa-bars" onclick="toggleDropdown()"></i>
       <div  class="menuConteudo" id="menuzinho">
-        <a href="/company/vagas" sec:authorize="hasAnyRole('ADMINISTRADOR','EMPRESA')" >Criar Vagas</a>
+        <a href="/company/vagas" sec:authorize="hasRole('EMPRESA')" >Criar Vagas</a>
+        <a href="/mod/habilidades" sec:authorize="hasRole('ADMINISTRADOR')" >Habilidades</a>
         <a href="#">Minhas Vagas</a>
         <a href="/company/perfil"    sec:authorize="hasRole('EMPRESA')"   >Perfil</a>
         <a href="/user/perfil"    sec:authorize="hasRole('PESSOA')"   >Meus Dados</a>
-
         <a href="#">Procura</a>
         <a href="#">Sair</a>
       </div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="home">
+<body>
+
+<div layout:fragment="content">
+
+    <div class="cadastro">
+
+        <div class="second-half">
+            <h2 style="font-family: 'Courgette', sans-serif; text-align: center;">Criando vagas!</h2>
+
+            <form action="" method="POST" class="form-login">
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" name="titulo" required>
+
+                <label for="link">Coloque aqui o link da sua vaga:</label>
+                <input type="text" id="link" name="link" required>
+
+                <label for="descricao">Descreva sua vaga:</label>
+                <input type="text" id="descricao" name="descricao" required>
+
+                <label for="tipo">Escola o tipo de vaga:</label>
+                <select id="tipo" name="tipo">
+                    <option value="ESTAGIO">Estágio</option>
+                    <option value="JUNIOR">Júnior</option>
+                    <option value="PLENO">Pleno</option>
+                    <option value="SENIOR">Sênior</option>
+                </select>
+
+
+                <label for="habilidades">Escolha as habilidades necessárias:</label>
+                <input type="text" id="habilidades" name="habilidades" required>
+
+
+
+                <button type="submit">Criar!</button>
+
+            </form>    </div>
+    </div>
+
+</div>
+
+</body>
+</html>

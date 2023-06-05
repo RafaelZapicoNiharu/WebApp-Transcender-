@@ -14,4 +14,9 @@ public class AdminController {
 
         return "inicioAdmin";
     }
+    @GetMapping("/habilidades")
+    public String pageHabilidades(Model model) {
+
+        return "habilidades";
+    }
 }
