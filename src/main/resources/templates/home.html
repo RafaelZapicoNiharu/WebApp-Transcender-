@@ -330,9 +330,10 @@
     <div class="menu" sec:authorize="isAuthenticated()" >
       <i class="fa-solid fa-bars" onclick="toggleDropdown()"></i>
       <div  class="menuConteudo" id="menuzinho">
-        <a href="/company/vagas" sec:authorize="hasRole('EMPRESA')" >Criar Vagas</a>
+        <a href="/company/criarvagas" sec:authorize="hasRole('EMPRESA')" >Criar Vagas</a>
         <a href="/mod/habilidades" sec:authorize="hasRole('ADMINISTRADOR')" >Habilidades</a>
-        <a href="#">Minhas Vagas</a>
+        <a href="/company/minhasvagas"  sec:authorize="hasRole('EMPRESA')"   >Vagas Criadas</a>
+        <a href="/user/minhasvagas"  sec:authorize="hasRole('PESSOA')"   >Minhas Vagas</a>
         <a href="/company/perfil"    sec:authorize="hasRole('EMPRESA')"   >Perfil</a>
         <a href="/user/perfil"    sec:authorize="hasRole('PESSOA')"   >Meus Dados</a>
         <a href="#">Procura</a>

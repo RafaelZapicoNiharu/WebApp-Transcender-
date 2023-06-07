@@ -9,8 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(path = {"/company"})
 public class EmpresaController {
 
-    @GetMapping("/vagas")
-    public String pageHome(Model model) {
+    @GetMapping("/criarvagas")
+    public String pageCriaVagas(Model model) {
+
+        return "cadastroVaga";
+    }
+    @GetMapping("/minhasvagas")
+    public String pageMinhasVagas(Model model) {
 
         return "cadastroVaga";
     }
