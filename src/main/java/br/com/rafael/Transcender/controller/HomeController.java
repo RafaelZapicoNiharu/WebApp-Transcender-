@@ -24,11 +24,11 @@ public class HomeController {
 
         return "login";
     }
-    @GetMapping("/logout")
-    public String pageLogout(Model model) {
-
-        return "logout";
-    }
+//    @GetMapping("/logout")
+//    public String pageLogout(Model model) {
+//
+//        return "logout";
+//    }
     @GetMapping("/cadastro")
     public String pageCadastro(Model model) {
 

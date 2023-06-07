@@ -405,7 +405,7 @@
         <a href="/company/perfil"    sec:authorize="hasRole('EMPRESA')"   >Perfil</a>
         <a href="/user/perfil"    sec:authorize="hasRole('PESSOA')"   >Meus Dados</a>
         <a href="/user/procura"     sec:authorize="hasRole('PESSOA')"   >Procura</a>
-        <a th:href="@{/logout}">Sair</a>
+<!--        <a th:href="@{/logout}">Sair</a>-->
       </div>
     </div>
     <a href="/login" sec:authorize="!isAuthenticated()"    ><i class="fa-solid fa-right-to-bracket"></i></a>
@@ -419,7 +419,7 @@
 
 
 
-  </div>
+
 
 
 </div>
