@@ -14,6 +14,11 @@ public class UserController {
 
         return "perfilUsuario";
     }
+    @GetMapping("/procura")
+    public String pageProcura(Model model) {
+
+        return "procura";
+    }
     @GetMapping("/minhasvagas")
     public String pageVaga(Model model) {
 

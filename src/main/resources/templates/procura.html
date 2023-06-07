@@ -6,29 +6,45 @@
 
 <div layout:fragment="content">
 
-    <div class="cadastro">
+    <div class="procura">
+        <div class="menu-lateral">
+            <h1 style="font-family: 'Courgette', sans-serif; text-align: center;">Procurar Vagas</h1>
 
-        <div class="second-half">
-            <h2 style="font-family: 'Courgette', sans-serif; text-align: center;">Adicionar</h2>
             <form action="" method="POST" class="form-login">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required>
-                    <button type="submit">Adicionar</button>
+
+
+                <label for="empresa">Informe a empresa</label>
+                <input type="text" id="empresa" name="empresa" class="form-field" >
+
+                <label for="descricao">Descreva sua vaga:</label>
+                <input type="text" id="descricao" name="descricao" class="form-field" >
+
+                <label for="tipo">Escola o tipo de vaga:</label>
+                <select id="tipo" name="tipo" class="form-field">
+                    <option value="ESTAGIO">Estágio</option>
+                    <option value="JUNIOR">Júnior</option>
+                    <option value="PLENO">Pleno</option>
+                    <option value="SENIOR">Sênior</option>
+                </select>
+
+
+
+
+
+
+
+                <button type="submit" class="">Procurar</button>
+
             </form>
         </div>
-        <div class="second-half">
-            <h2 style="font-family: 'Courgette', sans-serif; text-align: center;"> Habilidades Criadas</h2>
-
-            <div class="habs" style="display:flex;">
-                <div class="req">CSS <i class="fa-solid fa-x deletar"></i></div>
-                <div class="req">HTML <i class="fa-solid fa-x deletar"></i></div>
-                <div class="req">JAVASCRIPT <i class="fa-solid fa-x deletar"></i></div>
-            </div>
-
+        <div class="lista-divs-coloridas">
+            <div class="div-colorida "></div>
+            <div class="div-colorida "></div>
+            <div class="div-colorida "></div>
+            <div class="div-colorida "></div>
 
 
         </div>
-
 
     </div>
 
