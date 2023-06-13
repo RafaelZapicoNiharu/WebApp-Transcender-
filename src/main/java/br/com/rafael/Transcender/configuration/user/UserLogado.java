@@ -19,7 +19,7 @@ public class UserLogado implements UserDetails {
 
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+    public Collection<? extends GrantedAuthority> getAuthorities() { //esse metodo vai atribuir a role do usuario
         ArrayList<GrantedAuthority> roles = new ArrayList<>();
 
         if (user instanceof Pessoa) {
@@ -27,13 +27,15 @@ public class UserLogado implements UserDetails {
         } else if (user instanceof Empresa) {
             roles.add(new SimpleGrantedAuthority("ROLE_EMPRESA"));
         }
-        if (user.getId() == 1){
+        if (user.getId() == 1){ //o admin vai ser o pre pronto então terá id 1 sempre
             roles.add(new SimpleGrantedAuthority("ROLE_ADMINISTRADOR"));
         }
 
-        return roles;
+        return roles; // retorna a role
     }
 
+
+    //os metodos abaixos são os que poderão ser utilizados para fazer o retorno de dados dos usuarios
     public Usuario getUser() {
         return user;
     }

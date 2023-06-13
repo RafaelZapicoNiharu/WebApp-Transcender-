@@ -42,5 +42,7 @@ public class TranscenderApplication implements ApplicationRunner {
 		//salvando ele no banco através da dao
 		admins.save(mod); //funcionou certinho
 
+		System.out.println("Admin salvo :: "+mod.getId());
+
 	}
 }
