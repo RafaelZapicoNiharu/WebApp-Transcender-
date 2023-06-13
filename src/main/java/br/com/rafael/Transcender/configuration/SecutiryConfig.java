@@ -24,9 +24,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecutiryConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }//criptografia das senhas
+    public PasswordEncoder passwordEncoder(){ return new BCryptPasswordEncoder();}//criptografia das senhas
 
     @Autowired
     UserService uServ; //injeção do userservice
