@@ -405,7 +405,9 @@
         <a href="/company/perfil"    sec:authorize="hasRole('EMPRESA')"   >Perfil</a>
         <a href="/user/perfil"    sec:authorize="hasRole('PESSOA')"   >Meus Dados</a>
         <a href="/user/procura"     sec:authorize="hasRole('PESSOA')"   >Procura</a>
-<!--        <a th:href="@{/logout}">Sair</a>-->
+        <a><form method="POST" th:action="@{/logout}">
+          <button type="submit">Sair</button>
+        </form></a>
       </div>
     </div>
     <a href="/login" sec:authorize="!isAuthenticated()"    ><i class="fa-solid fa-right-to-bracket"></i></a>

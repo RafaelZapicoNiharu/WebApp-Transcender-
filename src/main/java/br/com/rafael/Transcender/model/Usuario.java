@@ -32,11 +32,10 @@ public class Usuario {
     @Column(length = 30,nullable = false)
     private String telefone;
     @Column(length = 120,nullable = false)
-    private String endereco;
-    @Column(length = 120,nullable = false)
     private String descricao;
     @Column(length = 120,nullable = false)
     private String senha;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataUltimoAcesso;
+
 }

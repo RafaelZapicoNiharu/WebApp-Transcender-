@@ -27,11 +27,12 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
                 .and().formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/home")
-                .permitAll().and().logout().logoutUrl("/logout").logoutSuccessUrl("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/home")
                 .permitAll();
-
-        http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout","GET"))
-                .logoutSuccessUrl("/login");
     }
 
     @Bean
@@ -55,5 +56,6 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
                 .withUser("empresa")
                 .password(passwordEncoder().encode("123"))
                 .roles("EMPRESA");
+
     }
 }
