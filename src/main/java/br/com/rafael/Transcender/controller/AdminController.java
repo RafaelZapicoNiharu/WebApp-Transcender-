@@ -31,9 +31,9 @@ public class AdminController {
     @GetMapping("/habilidades")
     public String pageHabilidades(Model model,Authentication auth) {
 
-        List<Habilidade> habs = habilis.getMyHabilidades() ; //chama a service pra trazer as habilidades
+        List<Habilidade> habilidades = habilis.getMyHabilidades() ; //chama a service pra trazer as habilidades
 
-        model.addAttribute("habilidades",habs); // bota elas no model
+        model.addAttribute("habilidades",habilidades); // bota elas no model
 
         return "listhabilidades"; //direciona tudo para a pagina
     }
