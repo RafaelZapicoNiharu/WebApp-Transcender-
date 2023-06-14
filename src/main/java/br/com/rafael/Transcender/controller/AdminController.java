@@ -28,22 +28,18 @@ public class AdminController {
 
         return "inicioAdmin";
     }
-    @GetMapping("/habilidades")
-    public String pageHabilidades(Model model,Authentication auth) {
+
+
+    @GetMapping("/habilidades") // isso aqui ta funcionando direito
+    public String pageNewHabilidade(Model model, Authentication auth){
 
         List<Habilidade> habilidades = habilis.getMyHabilidades() ; //chama a service pra trazer as habilidades
 
         model.addAttribute("habilidades",habilidades); // bota elas no model
 
-        return "listhabilidades"; //direciona tudo para a pagina
-    }
+        model.addAttribute("habilida",new Habilidade()); //adiciona ela no model
 
 
-    @GetMapping("/habilidades/new") // isso aqui ta funcionando direito
-    public String pageNewHabilidade(Model model, Authentication auth){
-
-//          Habilidade a = new Habilidade(0,""); // aqui cria um padrão pra deixar quando abrir
-           model.addAttribute("habilida",new Habilidade()); //adiciona ela no model
            return "habilidades"; // aqui entra na pagina, onde vamos utilizar
 
     }
