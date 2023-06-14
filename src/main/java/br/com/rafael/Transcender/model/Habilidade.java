@@ -20,4 +20,5 @@ public class Habilidade {
     private int id;
 
     private String nome;
+
 }
