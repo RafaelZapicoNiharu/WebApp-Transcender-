@@ -42,19 +42,19 @@ public class AdminController {
     @GetMapping("/habilidades/new") // isso aqui ta funcionando direito
     public String pageNewHabilidade(Model model, Authentication auth){
 
-          Habilidade a = new Habilidade(0,"Insira aqui"); // aqui cria um padrão pra deixar quando abrir
-           model.addAttribute("habilida",a); //adiciona ela no model
+//          Habilidade a = new Habilidade(0,""); // aqui cria um padrão pra deixar quando abrir
+           model.addAttribute("habilida",new Habilidade()); //adiciona ela no model
            return "habilidades"; // aqui entra na pagina, onde vamos utilizar
 
     }
 
     @PostMapping("/habilidades/save")
-    public String pageSaveHabilidade(@ModelAttribute Habilidade habilidade,
+    public String pageSaveHabilidade(@ModelAttribute Habilidade habilida,
                                   Model model, Authentication auth){
 
-          habilis.saveHabilidade(habilidade);
-//        cliServ.saveCarro(carro, (Cliente) ((UserLogado) auth.getPrincipal()).getUser());
+          habilis.saveHabilidade(habilida); //aqui utiliza o service para poder salvar
+        // a habilidade passada pelo formulario para o banco, atraves do save
 
-        return "redirect:/mod/habilidades";
+        return "redirect:/mod/habilidades/new";
     }
 }
