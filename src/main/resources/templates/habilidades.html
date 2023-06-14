@@ -10,24 +10,13 @@
 
         <div class="second-half">
             <h2 style="font-family: 'Courgette', sans-serif; text-align: center;">Adicionar</h2>
-            <form action="@{/mod/habilidade/save}" method="POST" th:object="${habilidade}" class="form-login">
+            <form action="@{/mod/habilidades/save}" method="POST" th:object="${habilida}" class="form-login">
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" th:field="*{nome}" required>
                     <button type="submit">Adicionar</button>
             </form>
         </div>
-        <div class="second-half">
-            <h2 style="font-family: 'Courgette', sans-serif; text-align: center;"> Habilidades Criadas</h2>
 
-            <div class="habs" style="display:flex;">
-                <div class="req">CSS <i class="fa-solid fa-x deletar"></i></div>
-                <div class="req">HTML <i class="fa-solid fa-x deletar"></i></div>
-                <div class="req">JAVASCRIPT <i class="fa-solid fa-x deletar"></i></div>
-            </div>
-
-
-
-        </div>
 
 
     </div>

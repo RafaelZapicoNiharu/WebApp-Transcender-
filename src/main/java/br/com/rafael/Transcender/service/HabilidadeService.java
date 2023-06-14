@@ -3,10 +3,12 @@ package br.com.rafael.Transcender.service;
 import br.com.rafael.Transcender.model.Habilidade;
 import br.com.rafael.Transcender.model.dao.HabilidadeDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
+@Service
 public class HabilidadeService {
 
     @Autowired

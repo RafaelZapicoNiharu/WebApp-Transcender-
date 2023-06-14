@@ -26,6 +26,7 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder(){ return new BCryptPasswordEncoder();}//criptografia das senhas
 
+
     @Autowired
     UserService uServ; //injeção do userservice
 
@@ -40,7 +41,7 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
         //ou seja, as permissões que cad um vai ter, e também os que serão publicos
         http.authorizeRequests()
                 .antMatchers("/home","/cadastro","/h2/**","/css/**","/img/**","/webjars/**").permitAll()
-                .antMatchers("/mod/**").hasRole("ADMINISTRADOR")
+                .antMatchers("/mod/****").hasRole("ADMINISTRADOR")
                 .antMatchers("/company/**").hasRole("EMPRESA")
                 .antMatchers("/user/**").hasRole("EMPRESA")
                 .anyRequest().authenticated()
@@ -51,7 +52,9 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/home")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+                .logoutSuccessUrl("/login")
                 .permitAll();
     }
 
