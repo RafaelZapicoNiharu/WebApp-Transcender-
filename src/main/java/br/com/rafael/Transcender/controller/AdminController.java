@@ -55,6 +55,6 @@ public class AdminController {
           habilis.saveHabilidade(habilida); //aqui utiliza o service para poder salvar
         // a habilidade passada pelo formulario para o banco, atraves do save
 
-        return "redirect:/mod/habilidades/new";
+        return "redirect:/mod/habilidades";
     }
 }
