@@ -23,6 +23,8 @@ public class HabilidadeService {
     public void saveHabilidade(Habilidade newHabilidade) { // vai estar recebendo uma nova
         //habilidade pelo post no método para então salvar utilizando a Dao
 
+        newHabilidade.setNome(newHabilidade.getNome().toUpperCase());
+
         habs.save(newHabilidade);
 
     }
