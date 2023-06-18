@@ -23,7 +23,7 @@ public class HomeController {
     @GetMapping("/login")
     public String pageLogin(Model model) {
 
-        return "login";
+        return "entrar";
     }
 
     @GetMapping("/cadastro")

@@ -2,6 +2,8 @@ package br.com.rafael.Transcender.configuration;
 
 import br.com.rafael.Transcender.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.support.ErrorPageFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,6 +18,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import java.util.logging.Filter;
 
 @Configuration
 @EnableGlobalAuthentication() //lembrar de perguntar ao daves oq esses fazem pq eu esqueci :)
@@ -35,6 +39,7 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(uServ) //aqui vai estar pegando o user  pra logar
                 .passwordEncoder(passwordEncoder());
     }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //aqui a gente configurou quais telas serão acessadas pelos determinados usuarios do sistema
@@ -45,7 +50,8 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/company/**").hasRole("EMPRESA")
                 .antMatchers("/user/**").hasRole("EMPRESA")
                 .anyRequest().authenticated()
-                .and().formLogin()
+                .and()
+                .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/home")
                 .permitAll()
@@ -54,7 +60,7 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/logout")
 //                .invalidateHttpSession(true)
 //                .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("/home")
+                .logoutSuccessUrl("/login")
                 .permitAll();
     }
 

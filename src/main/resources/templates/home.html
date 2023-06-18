@@ -11,6 +11,12 @@
       width: 0px;
       background-color: transparent;
     }
+
+     .left-column,
+     .right-column {
+            flex-basis: 45%;
+     }
+
     .habs{
     flex-direction:row;
     }
@@ -410,9 +416,9 @@
         <a href="/company/perfil"    sec:authorize="hasRole('EMPRESA')"   >Perfil</a>
         <a href="/user/perfil"    sec:authorize="hasRole('PESSOA')"   >Meus Dados</a>
         <a href="/user/procura"     sec:authorize="hasRole('PESSOA')"   >Procura</a>
-        <a><form method="POST" th:action="@{/logout}">
-          <button type="submit">Sair</button>
-        </form></a>
+<!--        <a><form method="POST" th:action="@{/logout}">-->
+<!--          <button type="submit">Sair</button>-->
+<!--        </form></a>-->
       </div>
     </div>
     <a href="/login" sec:authorize="!isAuthenticated()"    ><i class="fa-solid fa-right-to-bracket"></i></a>

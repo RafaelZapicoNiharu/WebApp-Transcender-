@@ -27,7 +27,7 @@ public class Usuario {
     private String login;
     @Column(length = 30,nullable = false)
     private String email;
-    @Column(length = 30,nullable = false)
+    @Column(length = 14,nullable = false)
     private String documento;
     @Column(length = 30,nullable = false)
     private String telefone;
