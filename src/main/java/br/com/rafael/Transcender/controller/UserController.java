@@ -23,6 +23,27 @@ public class UserController {
 
         return "perfilUsuario";
     }
+
+
+    @GetMapping("/perfil")
+    public String pagePerfil(Model model, Authentication auth){
+
+
+        model.addAttribute("nome",
+                    ((UserLogado) auth.getPrincipal()).getUser().getNome());
+
+        model.addAttribute("email",
+                ((UserLogado) auth.getPrincipal()).getUser().getEmail());
+
+        model.addAttribute("telefone",
+                ((UserLogado) auth.getPrincipal()).getUser().getTelefone());
+        model.addAttribute("descricao",
+                ((UserLogado) auth.getPrincipal()).getUser().getDescricao());
+
+
+
+        return "perfilUsuario";
+    }
     @GetMapping("/procura")
     public String pageProcura(Model model) {
 
