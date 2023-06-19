@@ -48,7 +48,7 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/home","/cadastro","/h2/**","/css/**","/img/**","/webjars/**").permitAll()
                 .antMatchers("/mod/**").hasRole("ADMINISTRADOR")
                 .antMatchers("/company/**").hasRole("EMPRESA")
-                .antMatchers("/user/**").hasRole("EMPRESA")
+                .antMatchers("/user/**").hasRole("PESSOA")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

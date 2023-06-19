@@ -19,13 +19,6 @@ public class UserController {
     private UserService uServ; //aqui eu estou pegando o user service
 
     @GetMapping("/perfil")
-    public String pagePerfil(Model model) {
-
-        return "perfilUsuario";
-    }
-
-
-    @GetMapping("/perfil")
     public String pagePerfil(Model model, Authentication auth){
 
 
