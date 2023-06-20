@@ -20,6 +20,10 @@ public class VagaService {
     public List<Vaga> getMyVagasCompany(Empresa empresa) {
         return vagas.findAllByEmpresa(empresa);
     }
+
+    public List<Vaga> getMyVagas() {
+        return vagas.findAll();
+    }
     @Transactional
     public void saveHabilidade(Vaga newVaga) {
         vagas.save(newVaga);

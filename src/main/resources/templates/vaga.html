@@ -7,33 +7,21 @@
 <div layout:fragment="content">
 
   <div class="profile" th:each="vaga : ${vagas}" style="display:flex;" >
-
-
     <h2 style="color:#42A5F5;font-family: 'Courgette', sans-serif; text-align: left; margin-left: 12px;
-      border-radius: 30px; font-size: 30px;">Fazedor de Bolos</h2>
-
-    <div class="profile-info">
-      <label>Cargo:</label>
-      <p>Boleiro</p>
-    </div>
+      border-radius: 30px; font-size: 30px;"   th:text="${vaga.titulo}"></h2>
     <div class="profile-info">
       <label>Descrição:</label>
-      <p>Venha fazer bolo aqui na zeri bolos naked cakes os melhores bolos do brasil venha bater bolos aqui</p>
+      <p   th:text="${vaga.descricao}"></p>
     </div>
     <div class="profile-info">
       <label>Empresa:</label>
-      <p>Zeri Bolos Ltda.</p>
+      <p  th:text="${vaga.empresa.nome}"></p>
     </div>
-    <div class="profile-info">
-      <label>Número de Vagas:</label>
-      <p>1</p>
-    </div>
-    <div class="profile-info">
       <label>Tipo:</label>
-      <p>JUNIOR</p>
+      <p th:text="${vaga.tipo}"></p>
     </div>
     <div class="botoes">
-      <button class="inscrever">Inscrever-se</button>
+      <button class="inscrever" th:href="${vaga.linkVaga}">Inscrever-se</button>
     </div>
 
   </div>
