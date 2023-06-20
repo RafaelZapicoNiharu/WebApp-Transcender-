@@ -6,11 +6,12 @@
 
 <div layout:fragment="content">
 
-  <div class="profile">
+  <div class="profile" th:each="vaga : ${vagas}" style="display:flex;" >
 
 
     <h2 style="color:#42A5F5;font-family: 'Courgette', sans-serif; text-align: left; margin-left: 12px;
       border-radius: 30px; font-size: 30px;">Fazedor de Bolos</h2>
+
     <div class="profile-info">
       <label>Cargo:</label>
       <p>Boleiro</p>
@@ -33,7 +34,6 @@
     </div>
     <div class="botoes">
       <button class="inscrever">Inscrever-se</button>
-
     </div>
 
   </div>

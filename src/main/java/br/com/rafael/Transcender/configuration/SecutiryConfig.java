@@ -41,6 +41,11 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/h2/**");
+    }
+
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         //aqui a gente configurou quais telas serão acessadas pelos determinados usuarios do sistema
         //ou seja, as permissões que cad um vai ter, e também os que serão publicos
