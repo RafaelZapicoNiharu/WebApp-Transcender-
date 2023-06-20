@@ -1,11 +1,10 @@
 package br.com.rafael.Transcender;
 
-import br.com.rafael.Transcender.model.Administrador;
-import br.com.rafael.Transcender.model.Empresa;
-import br.com.rafael.Transcender.model.Pessoa;
+import br.com.rafael.Transcender.model.*;
 import br.com.rafael.Transcender.model.dao.AdministradorDao;
 import br.com.rafael.Transcender.model.dao.EmpresaDao;
 import br.com.rafael.Transcender.model.dao.PessoaDao;
+import br.com.rafael.Transcender.model.dao.VagaDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -13,6 +12,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @SpringBootApplication
@@ -29,6 +30,8 @@ public class TranscenderApplication implements ApplicationRunner {
 
 	@Autowired
 	PessoaDao pessoas;
+	@Autowired
+	VagaDao vagas;
 	@Autowired
 	PasswordEncoder pass;
 	//como nos estamos utilizando senha criptografada, é necessario ter o passencoder aqui
@@ -79,8 +82,27 @@ public class TranscenderApplication implements ApplicationRunner {
 				.senha(pass.encode("123"))
 				.build();
 
+		List<Pessoa> pessoinhas = new ArrayList<>();
+		pessoinhas.add(pessoa);
+
+		Vaga vaga =  Vaga.builder()
+				.titulo("Arconte")
+				.linkVaga("https://i.pinimg.com/564x/76/c0/4b/76c04bb9fecdd53566b5098c8e2094a5.jpg")
+				.descricao("twink ventania")
+				.tipo(ETipoVaga.SENIOR)
+				.candidatos(pessoinhas)
+				.empresa(empresa)
+				.build();
+
 		pessoas.save(pessoa);
 		System.out.println("Pessoa salva :: "+pessoa.getId());
+
+		vagas.save(vaga);
+
+		System.out.println("Pessoas na vaga  salva :: "+vaga.getCandidatos().get(0).getNome());
+
+
+
 
 	}
 }

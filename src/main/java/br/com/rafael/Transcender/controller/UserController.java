@@ -3,6 +3,7 @@ package br.com.rafael.Transcender.controller;
 import br.com.rafael.Transcender.configuration.user.UserLogado;
 import br.com.rafael.Transcender.model.Empresa;
 import br.com.rafael.Transcender.model.Habilidade;
+import br.com.rafael.Transcender.model.Pessoa;
 import br.com.rafael.Transcender.model.Vaga;
 import br.com.rafael.Transcender.service.UserService;
 import br.com.rafael.Transcender.service.VagaService;
@@ -51,12 +52,5 @@ public class UserController {
 
         return "procura";
     }
-    @GetMapping("/minhasvagas") // isso aqui ta funcionando direito
-    public String pageMyVagas(Model model, Authentication auth){
 
-        List<Vaga> vagas = vServ.getMyVagasCompany((Empresa) auth.getPrincipal()) ;
-
-        model.addAttribute("vagas",vagas); // bota elas no model
-        return "vaga"; // aqui entra na pagina, onde vamos utilizar
-    }
 }
