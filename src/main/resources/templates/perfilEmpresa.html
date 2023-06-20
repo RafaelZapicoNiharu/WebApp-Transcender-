@@ -9,28 +9,24 @@
   <div class="profile">
 
     <div class="profile-content">
-      <div class="profile-image " ></div>
+      <div class="profile-image1 " ></div>
       <div class="profile-cover"></div>
     </div>
     <div class="profile-info">
       <label>Nome:</label>
-      <p>Zeri Bolos</p>
+      <p  th:text="${nome}"           ></p>
     </div>
     <div class="profile-info">
       <label>Email:</label>
-      <p>zericakes@gmail.com</p>
-    </div>
-    <div class="profile-info">
-      <label>Endereço:</label>
-      <p>Rua Sumoners Rift, Botlane 4</p>
+      <p  th:text="${email}"                     ></p>
     </div>
     <div class="profile-info">
       <label>Telefone:</label>
-      <p>(123) 456-7890</p>
+      <p  th:text="${telefone}"                       ></p>
     </div>
     <div class="profile-info">
       <label>Descrição:</label>
-      <p>Zeri. bolos. naked. cakes. os. melhores. bolos. do. mundo.</p>
+      <p  th:text="${descricao}"             ></p>
     </div>
   </div>
 
