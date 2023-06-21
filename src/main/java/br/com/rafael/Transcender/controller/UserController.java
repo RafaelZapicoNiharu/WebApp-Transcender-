@@ -47,7 +47,7 @@ public class UserController {
 
 
 
-        return "perfilUsuario";
+        return "perfil";
     }
 
 

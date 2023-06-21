@@ -58,6 +58,6 @@ public class EmpresaController {
 
 
 
-        return "perfilEmpresa";
+        return "perfil";
     }
 }

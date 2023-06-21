@@ -2,36 +2,38 @@
 <html lang="en"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="home">
-
 <body>
+
 <div layout:fragment="content">
 
-  <div class="profile">
+  <div class="profile" >
 
     <div class="profile-content">
-      <div class="profile-image2"></div>
+      <div class="profile-image2 " sec:authorize="hasRole('EMPRESA')"          ></div>
+      <div class="profile-image1 " sec:authorize="hasRole('PESSOA')"             ></div>
       <div class="profile-cover"></div>
     </div>
     <div class="profile-info">
       <label>Nome:</label>
-      <p  th:text="${nome}"            ></p>
+      <p  th:text="${nome}"           ></p>
     </div>
     <div class="profile-info">
       <label>Email:</label>
-      <p     th:text="${email}"     ></p>
+      <p  th:text="${email}"                     ></p>
     </div>
     <div class="profile-info">
       <label>Telefone:</label>
-      <p   th:text="${telefone}"              ></p>
+      <p  th:text="${telefone}"                       ></p>
     </div>
     <div class="profile-info">
       <label>Descrição:</label>
-      <p   th:text="${descricao}"              ></p>
+      <p  th:text="${descricao}"             ></p>
     </div>
+  </div>
+
   </div>
 
 </div>
 
 </body>
-
-
+</html>
