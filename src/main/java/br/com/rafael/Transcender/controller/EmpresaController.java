@@ -33,10 +33,10 @@ public class EmpresaController {
     public String pageMyVagas(Model model, Authentication auth){
 
         //aqui pega o login da empresa logada
-        String loginEmpresaLogada = ((UserLogado) auth.getPrincipal()).getUser().getLogin();
+        int loginEmpresaLogada = ((UserLogado) auth.getPrincipal()).getUser().getId();
 
         //aqui pega as vagas de acordo com esse login
-        List<Vaga> vagas = vServ.getMyVagasCompany((Empresa) uServ.loadUserByUsername(loginEmpresaLogada));
+        List<Vaga> vagas = vServ.getMyVagasCompany(loginEmpresaLogada);
 
         model.addAttribute("vagas",vagas); // bota elas no model
         return "vaga"; // aqui entra na pagina, onde vamos utilizar

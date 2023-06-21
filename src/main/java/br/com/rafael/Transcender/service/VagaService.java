@@ -14,9 +14,10 @@ import java.util.List;
 public class VagaService {
     @Autowired
     VagaDao vagas;
+
     //aqui sera o metodo que retornara todas as habilidades
-    public List<Vaga> getMyVagasCompany(Empresa empresa) {
-        return vagas.findAllByEmpresa(empresa);
+    public List<Vaga> getMyVagasCompany(int empresa) {
+        return vagas.findAllByEmpresaId(empresa);
     }
 
     public List<Vaga> getMyVagas() {

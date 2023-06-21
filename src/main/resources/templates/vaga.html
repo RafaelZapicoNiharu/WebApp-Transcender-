@@ -6,22 +6,27 @@
 
 <div layout:fragment="content">
 
-  <div class="profile" th:each="vaga : ${vagas}" style="display:flex;" >
+  <div class="profile" th:each="vaga : ${vagas}" style="display:flex; flex-direction:column;" >
     <h2 style="color:#42A5F5;font-family: 'Courgette', sans-serif; text-align: left; margin-left: 12px;
       border-radius: 30px; font-size: 30px;"   th:text="${vaga.titulo}"></h2>
-    <div class="profile-info">
+
+    <div class="profile-info" >
       <label>Descrição:</label>
       <p   th:text="${vaga.descricao}"></p>
     </div>
+
     <div class="profile-info">
       <label>Empresa:</label>
       <p  th:text="${vaga.empresa.nome}"></p>
     </div>
+
+    <div class="profile-info">
       <label>Tipo:</label>
       <p th:text="${vaga.tipo}"></p>
     </div>
+
     <div class="botoes">
-      <button class="inscrever" th:href="${vaga.linkVaga}">Inscrever-se</button>
+      <a  th:href="${vaga.linkVaga}"       ><button class="inscrever" >Inscrever-se</button></a>
     </div>
 
   </div>
