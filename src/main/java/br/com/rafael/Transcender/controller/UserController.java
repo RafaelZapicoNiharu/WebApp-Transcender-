@@ -28,6 +28,8 @@ public class UserController {
     @Autowired
     private VagaService vServ;
 
+
+
     @GetMapping("/perfil")
     public String pagePerfil(Model model, Authentication auth){
 

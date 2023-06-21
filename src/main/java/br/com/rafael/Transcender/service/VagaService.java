@@ -20,6 +20,7 @@ public class VagaService {
         return vagas.findAllByEmpresaId(empresa);
     }
 
+
     public List<Vaga> getMyVagas() {
         return vagas.findAll();
     }

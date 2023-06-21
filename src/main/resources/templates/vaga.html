@@ -12,7 +12,7 @@
 
     <div class="profile-info" >
       <label>Descrição:</label>
-      <p   th:text="${vaga.descricao}"></p>
+      <p th:text="${vaga.descricao}"></p>
     </div>
 
     <div class="profile-info">
@@ -25,8 +25,11 @@
       <p th:text="${vaga.tipo}"></p>
     </div>
 
-    <div class="botoes">
-      <a  th:href="${vaga.linkVaga}"       ><button class="inscrever" >Inscrever-se</button></a>
+    <div class="botoes" sec:authorize="hasRole('EMPRESA')">
+      <a  th:href="${vaga.linkVaga}"       ><button class="inscrever" >Inspecionar</button></a>
+    </div>
+    <div class="botoes" sec:authorize="hasRole('PESSOA')">
+      <a  th:href="${vaga.linkVaga}"       ><button class="inscrever" >Verificar</button></a>
     </div>
 
   </div>
