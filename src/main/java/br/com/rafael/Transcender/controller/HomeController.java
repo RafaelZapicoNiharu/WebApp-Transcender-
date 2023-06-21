@@ -44,7 +44,7 @@ public class HomeController {
 
         return "cadastro";
     }
-    @PostMapping("/cadastro/save")
+    @PostMapping("cadastro/save")
     public String pageSaveUsuario(@ModelAttribute Usuario usuario,
                                      Model model, Authentication auth){
 

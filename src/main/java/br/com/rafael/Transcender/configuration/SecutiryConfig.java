@@ -50,7 +50,7 @@ public class SecutiryConfig extends WebSecurityConfigurerAdapter {
         //aqui a gente configurou quais telas serão acessadas pelos determinados usuarios do sistema
         //ou seja, as permissões que cad um vai ter, e também os que serão publicos
         http.authorizeRequests()
-                .antMatchers("/home","/cadastro","/h2/**","/css/**","/img/**","/webjars/**").permitAll()
+                .antMatchers("/home","/cadastro/**","/h2/**","/css/**","/img/**","/webjars/**").permitAll()
                 .antMatchers("/mod/**").hasRole("ADMINISTRADOR")
                 .antMatchers("/company/**").hasRole("EMPRESA")
                 .antMatchers("/user/**").hasRole("PESSOA")

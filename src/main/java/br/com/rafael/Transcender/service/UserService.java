@@ -32,7 +32,7 @@ public class UserService implements UserDetailsService {
     public void saveUsuario(Usuario newUsuario) {
         if(newUsuario.getDocumento().length()==14){ //se for 14 digitos é cnpf
             empresadao.save((Empresa) newUsuario); //entao salva uma empresa
-        } else if (newUsuario.getDocumento().length()==11) { //se for 11 digitos é cnpf
+        } else if (newUsuario.getDocumento().length()==11) { //se for 11 digitos é cpfs
             pessoadao.save((Pessoa) newUsuario); //entao salva uma pessoa
         }else{
             throw new UsernameNotFoundException("Documento deve ter 11 ou 14 digitos!");
