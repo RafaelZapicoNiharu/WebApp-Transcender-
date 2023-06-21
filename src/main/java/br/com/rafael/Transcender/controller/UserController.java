@@ -49,6 +49,21 @@ public class UserController {
 
         return "perfilUsuario";
     }
+
+
+    @GetMapping("/minhasvagas") // isso aqui ta funcionando direito
+    public String pageMyVagas(Model model, Authentication auth){
+
+        //aqui pega o login da empresa logada
+        int loginUserLogada = ((UserLogado) auth.getPrincipal()).getUser().getId();
+
+        //aqui pega as vagas de acordo com esse login
+        List<Vaga> vagas = vServ.getMyVagasUser(loginUserLogada);
+
+        model.addAttribute("vagas",vagas); // bota elas no model
+        return "vaga"; // aqui entra na pagina, onde vamos utilizar
+    }
+
     @GetMapping("/procura")
     public String pageProcura(Model model) {
 

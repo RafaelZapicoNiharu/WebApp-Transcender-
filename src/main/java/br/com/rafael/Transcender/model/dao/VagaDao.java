@@ -10,8 +10,12 @@ import java.util.List;
 public interface VagaDao  extends JpaRepository<Vaga, Integer> {
     List<Vaga> findAllById(String id);
 
+    List<Vaga> findAllByCandidatosId(int id);
+
 
 
 
     List<Vaga> findAllByEmpresaId(int empresa);
+
+
 }

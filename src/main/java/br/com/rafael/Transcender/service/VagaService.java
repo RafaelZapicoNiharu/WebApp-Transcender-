@@ -19,6 +19,9 @@ public class VagaService {
     public List<Vaga> getMyVagasCompany(int empresa) {
         return vagas.findAllByEmpresaId(empresa);
     }
+    public List<Vaga> getMyVagasUser(int loginUserLogada) {
+        return vagas.findAllByCandidatosId(loginUserLogada);
+    }
 
 
     public List<Vaga> getMyVagas() {
@@ -28,6 +31,7 @@ public class VagaService {
     public void saveHabilidade(Vaga newVaga) {
         vagas.save(newVaga);
     }
+
 
 
 }
