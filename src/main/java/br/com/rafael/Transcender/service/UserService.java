@@ -30,13 +30,14 @@ public class UserService implements UserDetailsService {
 
     @Transactional
     public void saveUsuario(Usuario newUsuario) {
-        if(newUsuario.getDocumento().length()==14){ //se for 14 digitos é cnpf
-            empresadao.save((Empresa) newUsuario); //entao salva uma empresa
-        } else if (newUsuario.getDocumento().length()==11) { //se for 11 digitos é cpfs
-            pessoadao.save((Pessoa) newUsuario); //entao salva uma pessoa
-        }else{
-            throw new UsernameNotFoundException("Documento deve ter 11 ou 14 digitos!");
-        }
+
+            if(newUsuario.getDocumento().length()==14){ //se for 14 digitos é cnpj
+                Empresa desgraca = (Empresa) newUsuario;
+                empresadao.save(desgraca); //entao salva uma empresa
+            } else if (newUsuario.getDocumento().length()==11) { //se for 11 digitos é cpfs
+                Pessoa tristeza = (Pessoa) newUsuario;
+                pessoadao.save(tristeza); //entao salva uma pessoa
+            }
     }
 
 

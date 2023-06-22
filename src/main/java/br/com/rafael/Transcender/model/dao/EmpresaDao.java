@@ -11,4 +11,6 @@ public interface EmpresaDao extends JpaRepository<Empresa, Integer> {
     Usuario findByLogin(String username);
 
 
+
+
 }
