@@ -30,4 +30,8 @@ public class HabilidadeService {
     }
 
 
+    public void apagaHabilidade(int id) {
+
+        habs.deleteById(id);
+    }
 }

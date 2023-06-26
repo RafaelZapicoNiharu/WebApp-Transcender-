@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -25,6 +27,9 @@ public class UserService implements UserDetailsService {
     @Autowired
     EmpresaDao empresadao;
 
+//    @Autowired
+//    PasswordEncoder passo;
+
     @Autowired
     AdministradorDao admindao;
 
@@ -32,11 +37,26 @@ public class UserService implements UserDetailsService {
     public void saveUsuario(Usuario newUsuario) {
 
             if(newUsuario.getDocumento().length()==14){ //se for 14 digitos é cnpj
-                Empresa desgraca = (Empresa) newUsuario;
-                empresadao.save(desgraca); //entao salva uma empresa
+                Empresa empresa = new Empresa();
+                empresa.setNome(newUsuario.getNome());
+                empresa.setLogin(newUsuario.getLogin());
+                empresa.setDocumento(newUsuario.getDocumento());
+                empresa.setTelefone(newUsuario.getTelefone());
+                empresa.setDescricao(newUsuario.getDescricao());
+                empresa.setEmail(newUsuario.getEmail());
+                empresa.setSenha(new BCryptPasswordEncoder().encode(newUsuario.getSenha()));
+
+                empresadao.save(empresa); //entao salva uma empresa
             } else if (newUsuario.getDocumento().length()==11) { //se for 11 digitos é cpfs
-                Pessoa tristeza = (Pessoa) newUsuario;
-                pessoadao.save(tristeza); //entao salva uma pessoa
+                Pessoa empresa1 = new Pessoa();
+                empresa1.setNome(newUsuario.getNome());
+                empresa1.setLogin(newUsuario.getLogin());
+                empresa1.setDocumento(newUsuario.getDocumento());
+                empresa1.setTelefone(newUsuario.getTelefone());
+                empresa1.setDescricao(newUsuario.getDescricao());
+                empresa1.setEmail(newUsuario.getEmail());
+                empresa1.setSenha(new BCryptPasswordEncoder().encode(newUsuario.getSenha()));
+                pessoadao.save(empresa1); //entao salva uma pessoa
             }
     }
 

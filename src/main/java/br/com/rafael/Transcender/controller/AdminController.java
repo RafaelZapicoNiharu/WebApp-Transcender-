@@ -7,10 +7,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +48,13 @@ public class AdminController {
           habilis.saveHabilidade(habilida); //aqui utiliza o service para poder salvar
         // a habilidade passada pelo formulario para o banco, atraves do save
 
+        return "redirect:/mod/habilidades";
+    }
+
+    @GetMapping("/habilidades/deletar/{id}")
+    public String pageApagaHabilidade(@PathVariable("id") int id, Authentication auth){
+
+        habilis.apagaHabilidade(id);
         return "redirect:/mod/habilidades";
     }
 }

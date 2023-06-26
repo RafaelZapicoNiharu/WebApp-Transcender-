@@ -19,7 +19,7 @@ public class Pessoa extends Usuario {
 
     @ManyToMany
     private List<Habilidade> minhasHabilidades;
-    private String AreaInteresse;
+
 
     @ManyToMany
     @JoinColumn(name = "candidatos")

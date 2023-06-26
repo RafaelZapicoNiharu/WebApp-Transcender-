@@ -21,7 +21,7 @@
             <div class="habs"  th:each="habilidade : ${habilidades}"   style="display:flex; ">
                 <div class="req" style="display:flex; ">
                     <div  th:text="${habilidade.nome}" style="margin-right:10px;" ></div>
-                    <i class="fa-solid fa-x deletar"></i>
+                    <a th:action="@{/mod/habilidades/deletar/{id}(id=${habilidade.id})}"><i class="fa-solid fa-x deletar"></i></a>
                 </div>
             </div>
         </div>
