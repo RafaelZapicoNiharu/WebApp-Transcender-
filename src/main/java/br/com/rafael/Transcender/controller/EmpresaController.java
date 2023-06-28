@@ -64,6 +64,7 @@ public class EmpresaController {
 
     @GetMapping("/perfil")
     public String pagePerfil(Model model, Authentication auth){
+
         model.addAttribute("nome",
                 ((UserLogado) auth.getPrincipal()).getUser().getNome());
         model.addAttribute("id",
