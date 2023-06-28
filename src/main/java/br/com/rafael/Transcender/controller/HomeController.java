@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
     @Autowired
-    UserService usuarioservice;
+    UserService userv;
 
     @GetMapping("")
     public String pageHome(Model model) {
@@ -48,10 +48,10 @@ public class HomeController {
     public String pageSaveUsuario(@ModelAttribute Usuario usuario,
                                      Model model, Authentication auth){
         if(usuario.getId()==0) {
-            usuarioservice.saveUsuario(usuario); //aqui utiliza o service para poder salvar
+            userv.saveUsuario(usuario); //aqui utiliza o service para poder salvar
             // o usuario passada pelo formulario para o banco, atraves do save
         }else if(usuario.getId()!=0){
-            usuarioservice.editUsuario(usuario);
+            userv.editarUsuario(usuario);
         }
 
         return "redirect:/home";

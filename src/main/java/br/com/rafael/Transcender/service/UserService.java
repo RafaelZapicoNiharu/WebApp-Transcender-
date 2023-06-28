@@ -91,9 +91,7 @@ public class UserService implements UserDetailsService {
 
         return u;
     }
-
-    public void editUsuario(Usuario usuario) {
-
+    public void editarUsuario(Usuario usuario) {
 
         if(usuario instanceof Pessoa){
             Pessoa pessoa = new Pessoa();
