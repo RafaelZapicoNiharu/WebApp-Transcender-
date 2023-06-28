@@ -3,6 +3,7 @@ package br.com.rafael.Transcender.controller;
 import br.com.rafael.Transcender.configuration.user.UserLogado;
 import br.com.rafael.Transcender.model.Empresa;
 import br.com.rafael.Transcender.model.Pessoa;
+import br.com.rafael.Transcender.model.Usuario;
 import br.com.rafael.Transcender.model.Vaga;
 import br.com.rafael.Transcender.service.UserService;
 import br.com.rafael.Transcender.service.VagaService;
@@ -50,12 +51,15 @@ public class EmpresaController {
         vServ.apagaHabilidade(id);
         return "redirect:/company/minhasvagas";
     }
+
+
     @GetMapping("/perfil")
     public String pagePerfil(Model model, Authentication auth){
-
-
         model.addAttribute("nome",
                 ((UserLogado) auth.getPrincipal()).getUser().getNome());
+        model.addAttribute("id",
+                ((UserLogado) auth.getPrincipal()).getUser().getId());
+
 
         model.addAttribute("email",
                 ((UserLogado) auth.getPrincipal()).getUser().getEmail());
@@ -64,9 +68,7 @@ public class EmpresaController {
                 ((UserLogado) auth.getPrincipal()).getUser().getTelefone());
         model.addAttribute("descricao",
                 ((UserLogado) auth.getPrincipal()).getUser().getDescricao());
-
-
-
         return "perfil";
     }
+
 }

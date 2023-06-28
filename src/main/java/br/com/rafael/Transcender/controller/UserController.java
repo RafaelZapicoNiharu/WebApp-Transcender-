@@ -1,10 +1,7 @@
 package br.com.rafael.Transcender.controller;
 
 import br.com.rafael.Transcender.configuration.user.UserLogado;
-import br.com.rafael.Transcender.model.Empresa;
-import br.com.rafael.Transcender.model.Habilidade;
-import br.com.rafael.Transcender.model.Pessoa;
-import br.com.rafael.Transcender.model.Vaga;
+import br.com.rafael.Transcender.model.*;
 import br.com.rafael.Transcender.service.UserService;
 import br.com.rafael.Transcender.service.VagaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +34,8 @@ public class UserController {
 
         model.addAttribute("nome",
                     ((UserLogado) auth.getPrincipal()).getUser().getNome());
-
+        model.addAttribute("id",
+                ((UserLogado) auth.getPrincipal()).getUser().getId());
         model.addAttribute("email",
                 ((UserLogado) auth.getPrincipal()).getUser().getEmail());
 
@@ -65,8 +63,9 @@ public class UserController {
         return "vaga"; // aqui entra na pagina, onde vamos utilizar
     }
     @GetMapping("/minhasvagas/deletar/{id}")
-    public String pageApagaHabilidade(@PathVariable("id") int id, Authentication auth){
+    public String pageApagaHabilidade(@PathVariable("id") int id, Authentication auth, Model model){
 
+        model.addAttribute("usuario",new Usuario()); //adiciona usuario no model
         vServ.apagaHabilidade(id);
         return "redirect:/company/minhasvagas";
     }
@@ -76,5 +75,7 @@ public class UserController {
 
         return "procura";
     }
+
+
 
 }

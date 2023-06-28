@@ -6,11 +6,13 @@
 
 <div layout:fragment="content">
 
-  <div class="profile" >
 
+    <div class="profile" >
     <div class="profile-content">
-      <div class="profile-image2 " sec:authorize="hasRole('EMPRESA')"          ></div>
-      <div class="profile-image1 " sec:authorize="hasRole('PESSOA')"             ></div>
+      <div class="profile-image2 " sec:authorize="hasRole('EMPRESA')"></div>
+      <div class="profile-image1 " sec:authorize="hasRole('PESSOA')"></div>
+      <a sec:authorize="hasRole('EMPRESA')" th:href="@{/company/perfil/editar/{id}(id=${id})}"> <i class="fa-solid fa-pencil"></i></a>
+      <a sec:authorize="hasRole('PESSOA')"  th:href="@{/user/perfil/editar/{id}(id=${id})}"> <i class="fa-solid fa-pencil"></i></a>
       <div class="profile-cover"></div>
     </div>
     <div class="profile-info">
