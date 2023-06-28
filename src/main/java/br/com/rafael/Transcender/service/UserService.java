@@ -10,11 +10,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -79,5 +77,44 @@ public class UserService implements UserDetailsService {
         }
 
         return new UserLogado(u);
+    }
+
+    public Usuario buscarUsuarioId(int id) {
+        Usuario u = pessoadao.findById(id);
+
+        if (u == null){
+            u = empresadao.findById(id);
+        }
+        if (u == null){
+            throw new UsernameNotFoundException("Usuário não encontrado");
+        }
+
+        return u;
+    }
+
+    public void editUsuario(Usuario usuario) {
+
+
+        if(usuario instanceof Pessoa){
+            Pessoa pessoa = new Pessoa();
+            pessoa.setNome(usuario.getNome());
+            pessoa.setLogin(usuario.getLogin());
+            pessoa.setDocumento(usuario.getDocumento());
+            pessoa.setTelefone(usuario.getTelefone());
+            pessoa.setDescricao(usuario.getDescricao());
+            pessoa.setEmail(usuario.getEmail());
+            pessoa.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
+            pessoadao.save(pessoa);
+        }else if((usuario instanceof Empresa)){
+            Empresa empresa = new Empresa();
+            empresa.setNome(usuario.getNome());
+            empresa.setLogin(usuario.getLogin());
+            empresa.setDocumento(usuario.getDocumento());
+            empresa.setTelefone(usuario.getTelefone());
+            empresa.setDescricao(usuario.getDescricao());
+            empresa.setEmail(usuario.getEmail());
+            empresa.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
+            empresadao.save(empresa);
+        }
     }
 }

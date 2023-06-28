@@ -47,11 +47,14 @@ public class HomeController {
     @PostMapping("cadastro/save")
     public String pageSaveUsuario(@ModelAttribute Usuario usuario,
                                      Model model, Authentication auth){
+        if(usuario.getId()==0) {
+            usuarioservice.saveUsuario(usuario); //aqui utiliza o service para poder salvar
+            // o usuario passada pelo formulario para o banco, atraves do save
+        }else if(usuario.getId()!=0){
+            usuarioservice.editUsuario(usuario);
+        }
 
-        usuarioservice.saveUsuario(usuario); //aqui utiliza o service para poder salvar
-        // o usuario passada pelo formulario para o banco, atraves do save
-
-        return "redirect:/login";
+        return "redirect:/home";
     }
 
 }

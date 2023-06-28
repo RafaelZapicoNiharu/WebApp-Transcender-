@@ -10,6 +10,7 @@ import br.com.rafael.Transcender.service.VagaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,10 +47,18 @@ public class EmpresaController {
         return "vaga"; // aqui entra na pagina, onde vamos utilizar
     }
     @GetMapping("/minhasvagas/deletar/{id}")
-    public String pageApagaHabilidade(@PathVariable("id") int id, Authentication auth){
+    public String pageApagaHabilidade( @PathVariable("id") int id, Authentication auth){
 
         vServ.apagaHabilidade(id);
         return "redirect:/company/minhasvagas";
+    }
+    @GetMapping("/perfil/editar/{id}")
+    public String pageEditarUsuario(Model model, @PathVariable("id") int id, Authentication auth){
+
+        Usuario u = uServ.buscarUsuarioId(id);
+        model.addAttribute("usuario",u);
+
+        return "cadastro";
     }
 
 

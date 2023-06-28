@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public interface EmpresaDao extends JpaRepository<Empresa, Integer> {
     Usuario findByLogin(String username);
+    Usuario findById(int id);
 
 
 

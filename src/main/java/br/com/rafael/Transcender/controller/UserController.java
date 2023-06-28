@@ -48,6 +48,14 @@ public class UserController {
 
         return "perfil";
     }
+    @GetMapping("/perfil/editar/{id}")
+    public String pageEditarUsuario(Model model,@PathVariable("id") int id, Authentication auth){
+
+        Usuario u = uServ.buscarUsuarioId(id);
+        model.addAttribute("usuario",u);
+
+        return "cadastro";
+    }
 
 
     @GetMapping("/minhasvagas") // isso aqui ta funcionando direito
