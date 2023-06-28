@@ -48,8 +48,8 @@ public class HomeController {
     public String pageSaveUsuario(@ModelAttribute Usuario usuario,
                                      Model model, Authentication auth){
         if(usuario.getId()==0) {
-            userv.saveUsuario(usuario); //aqui utiliza o service para poder salvar
-            // o usuario passada pelo formulario para o banco, atraves do save
+            userv.saveUsuario(usuario);
+
         }else if(usuario.getId()!=0){
             userv.editarUsuario(usuario);
         }

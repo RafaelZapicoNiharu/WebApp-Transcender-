@@ -26,8 +26,6 @@ public class UserService implements UserDetailsService {
     @Autowired
     EmpresaDao empresadao;
 
-//    @Autowired
-//    PasswordEncoder passo;
 
     @Autowired
     AdministradorDao admindao;
@@ -80,10 +78,10 @@ public class UserService implements UserDetailsService {
     }
 
     public Usuario buscarUsuarioId(int id) {
-        Usuario u = pessoadao.findById(id);
+        Usuario u = pessoadao.findById(id).get();
 
         if (u == null){
-            u = empresadao.findById(id);
+            u = empresadao.findById(id).get();
         }
         if (u == null){
             throw new UsernameNotFoundException("Usuário não encontrado");
@@ -94,10 +92,8 @@ public class UserService implements UserDetailsService {
     @Transactional
     public void editarUsuario(Usuario usuario) {
 
-
-
         if(usuario.getDocumento().length()==11){
-            Pessoa pessoa = new Pessoa();
+            Pessoa pessoa = pessoadao.findById(usuario.getId()).get();
             pessoa.setNome(usuario.getNome());
             pessoa.setLogin(usuario.getLogin());
             pessoa.setDocumento(usuario.getDocumento());
@@ -107,7 +103,7 @@ public class UserService implements UserDetailsService {
             pessoa.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
             pessoadao.save(pessoa);
         }else if(usuario.getDocumento().length()==14){
-            Empresa empresa = new Empresa();
+            Empresa empresa = empresadao.findById(usuario.getId()).get();
             empresa.setNome(usuario.getNome());
             empresa.setLogin(usuario.getLogin());
             empresa.setDocumento(usuario.getDocumento());
