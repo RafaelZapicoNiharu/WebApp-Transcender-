@@ -94,7 +94,7 @@ public class UserService implements UserDetailsService {
     @Transactional
     public void editarUsuario(Usuario usuario) {
 
-        if(usuario instanceof Pessoa){
+        if(usuario.getDocumento().length()==11){
             Pessoa pessoa = new Pessoa();
             pessoa.setNome(usuario.getNome());
             pessoa.setLogin(usuario.getLogin());
@@ -104,7 +104,7 @@ public class UserService implements UserDetailsService {
             pessoa.setEmail(usuario.getEmail());
             pessoa.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
             pessoadao.save(pessoa);
-        }else if((usuario instanceof Empresa)){
+        }else if(usuario.getDocumento().length()==14){
             Empresa empresa = new Empresa();
             empresa.setNome(usuario.getNome());
             empresa.setLogin(usuario.getLogin());
