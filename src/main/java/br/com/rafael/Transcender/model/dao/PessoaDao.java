@@ -9,4 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface PessoaDao extends JpaRepository<Pessoa, Integer> {
     Usuario findByLogin(String username);
     Usuario findById(int id);
+
+    void saveById(int id);
 }
