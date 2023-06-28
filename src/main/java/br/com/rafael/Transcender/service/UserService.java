@@ -91,6 +91,7 @@ public class UserService implements UserDetailsService {
 
         return u;
     }
+    @Transactional
     public void editarUsuario(Usuario usuario) {
 
         if(usuario instanceof Pessoa){
