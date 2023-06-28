@@ -13,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -62,6 +63,12 @@ public class UserController {
 
         model.addAttribute("vagas",vagas); // bota elas no model
         return "vaga"; // aqui entra na pagina, onde vamos utilizar
+    }
+    @GetMapping("/minhasvagas/deletar/{id}")
+    public String pageApagaHabilidade(@PathVariable("id") int id, Authentication auth){
+
+        vServ.apagaHabilidade(id);
+        return "redirect:/company/minhasvagas";
     }
 
     @GetMapping("/procura")
