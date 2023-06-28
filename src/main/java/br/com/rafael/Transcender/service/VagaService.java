@@ -33,5 +33,7 @@ public class VagaService {
     }
 
 
-
+    public void apagaHabilidade(int id) {
+        vagas.deleteById(id);
+    }
 }

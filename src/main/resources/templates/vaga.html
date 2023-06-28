@@ -26,10 +26,14 @@
     </div>
 
     <div class="botoes" sec:authorize="hasRole('EMPRESA')">
-      <a  th:href="${vaga.linkVaga}"       ><button class="inscrever" >Inspecionar</button></a>
+      <a  th:href="${vaga.linkVaga}"><button class="inscrever" >Inspecionar</button></a>
+      <a  th:href="@{/company/minhasvagas/deletar/{id}(id=${vaga.id})}"><button class="inscrever" >Excluir</button></a>
+<!--      <a th:href="@{/mod/habilidades/deletar/{id}(id=${habilidade.id})}"><i class="fa-solid fa-x deletar"></i></a>-->
+<!--      <a th:href="@{/mod/habilidades/deletar/{id}(id=${habilidade.id})}"><i class="fa-solid fa-x deletar"></i></a>-->
     </div>
     <div class="botoes" sec:authorize="hasRole('PESSOA')">
       <a  th:href="${vaga.linkVaga}"       ><button class="inscrever" >Verificar</button></a>
+      <a  th:href="@{/company/minhasvagas/deletar/{id}(id=${vaga.id})}"><button class="inscrever" >Descartar</button></a>
     </div>
 
   </div>

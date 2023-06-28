@@ -7,15 +7,18 @@ import br.com.rafael.Transcender.model.Vaga;
 import br.com.rafael.Transcender.service.UserService;
 import br.com.rafael.Transcender.service.VagaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Controller
+@PreAuthorize("hasRole('EMPRESA')")
 @RequestMapping(path = {"/company"})
 public class EmpresaController {
 
@@ -40,6 +43,12 @@ public class EmpresaController {
 
         model.addAttribute("vagas",vagas); // bota elas no model
         return "vaga"; // aqui entra na pagina, onde vamos utilizar
+    }
+    @GetMapping("/minhasvagas/deletar/{id}")
+    public String pageApagaHabilidade(@PathVariable("id") int id, Authentication auth){
+
+        vServ.apagaHabilidade(id);
+        return "redirect:/company/minhasvagas";
     }
     @GetMapping("/perfil")
     public String pagePerfil(Model model, Authentication auth){
