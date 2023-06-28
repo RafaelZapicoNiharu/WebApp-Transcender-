@@ -94,6 +94,8 @@ public class UserService implements UserDetailsService {
     @Transactional
     public void editarUsuario(Usuario usuario) {
 
+
+
         if(usuario.getDocumento().length()==11){
             Pessoa pessoa = new Pessoa();
             pessoa.setNome(usuario.getNome());
