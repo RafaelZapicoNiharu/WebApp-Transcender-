@@ -70,13 +70,6 @@ public class UserController {
         model.addAttribute("vagas",vagas); // bota elas no model
         return "vaga"; // aqui entra na pagina, onde vamos utilizar
     }
-    @GetMapping("/minhasvagas/deletar/{id}")
-    public String pageApagaHabilidade(@PathVariable("id") int id, Authentication auth, Model model){
-
-        model.addAttribute("usuario",new Usuario()); //adiciona usuario no model
-        vServ.apagaHabilidade(id);
-        return "redirect:/company/minhasvagas";
-    }
 
     @GetMapping("/procura")
     public String pageProcura(Model model) {

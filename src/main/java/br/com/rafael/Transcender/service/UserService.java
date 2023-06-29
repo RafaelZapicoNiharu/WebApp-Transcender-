@@ -80,10 +80,10 @@ public class UserService implements UserDetailsService {
     public Usuario buscarUsuarioId(int id) {
         Usuario u = pessoadao.findById(id).get();
 
-        if (u == null){
+        if (!pessoadao.findById(id).isPresent()){
             u = empresadao.findById(id).get();
         }
-        if (u == null){
+        if (!empresadao.findById(id).isPresent()){
             throw new UsernameNotFoundException("Usuário não encontrado");
         }
 
