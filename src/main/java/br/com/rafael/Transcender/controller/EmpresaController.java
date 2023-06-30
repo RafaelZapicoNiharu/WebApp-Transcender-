@@ -1,10 +1,7 @@
 package br.com.rafael.Transcender.controller;
 
 import br.com.rafael.Transcender.configuration.user.UserLogado;
-import br.com.rafael.Transcender.model.Empresa;
-import br.com.rafael.Transcender.model.Pessoa;
-import br.com.rafael.Transcender.model.Usuario;
-import br.com.rafael.Transcender.model.Vaga;
+import br.com.rafael.Transcender.model.*;
 import br.com.rafael.Transcender.service.UserService;
 import br.com.rafael.Transcender.service.VagaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +27,9 @@ public class EmpresaController {
     private UserService uServ;
 
     @GetMapping("/criarvagas")
-    public String pageCriaVagas(Model model) {
+    public String pageCriaVagas(Model model, Authentication auth) {
+
+        model.addAttribute("vaga",new Vaga());
 
         return "cadastroVaga";
     }
