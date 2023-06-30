@@ -31,7 +31,7 @@
 
 
                 <label for="habilidades">Escolha as habilidades necessárias:</label>
-                <input type="text" id="habilidades" name="habilidades" required>
+                <div id="checkboxHabilidades"></div>
 
 
 
@@ -44,6 +44,38 @@
 
 <script layout:fragment="script" th:inline="javascript">
 
+
+  function obterHabilidades() {
+    var url = "/api/habilidades/criaVaga"; // Caminho para o endpoint que retorna as habilidades
+    var checkboxHabilidades = document.getElementById("checkboxHabilidades");
+
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url, true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        var habilidades = JSON.parse(xhr.responseText);
+
+
+        for (var i = 0; i < habilidades.length; i++) {
+          var habilidade = habilidades[i];
+          var checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.name = "habilidades";
+          checkbox.value = habilidade;
+          checkboxHabilidades.appendChild(checkbox);
+
+          var label = document.createElement("label");
+          label.appendChild(document.createTextNode(habilidade));
+          checkboxHabilidades.appendChild(label);
+
+          checkboxHabilidades.appendChild(document.createElement("br"));
+        }
+      }
+    };
+    xhr.send();
+  }
+  obterHabilidades();
 
 
 

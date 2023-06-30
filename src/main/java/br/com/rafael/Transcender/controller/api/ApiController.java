@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -17,17 +18,16 @@ public class ApiController {
     @Autowired
     HabilidadeService habilis;
 
-    @GetMapping("/habilidades/criaVaga") // vai retornar todas as habilidades que ha no sistema
-    public String[] retornaHabilidades(){
-
+    @GetMapping("/habilidades/criaVaga")
+    public List<String> retornaHabilidades() {
         List<Habilidade> habilidades = habilis.getMyHabilidades();
-        String[] habilidadesArray = new String[habilidades.size()];
+        List<String> habilidadesList = new ArrayList<>();
 
-        for (int i = 0; i < habilidades.size(); i++) {
-            Habilidade habilidade = habilidades.get(i);
-            habilidadesArray[i] = habilidade.getNome();
+        for (Habilidade habilidade : habilidades) {
+            habilidadesList.add(habilidade.getNome());
         }
 
-        return habilidadesArray;
+        return habilidadesList;
     }
+
 }
