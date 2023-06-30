@@ -10,9 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,6 +30,18 @@ public class EmpresaController {
         model.addAttribute("vaga",new Vaga());
 
         return "cadastroVaga";
+    }
+    @PostMapping("/criarvagas/save")
+    public String pageSaveVaga(@ModelAttribute Vaga vaga,
+                                     Model model, Authentication auth){
+
+        int loginUserLogada = ((UserLogado) auth.getPrincipal()).getUser().getId();
+        vaga.setEmpresa((Empresa) uServ.buscarUsuarioId(loginUserLogada));
+
+        vServ.saveHabilidade(vaga); //aqui utiliza o service para poder salvar
+        // a habilidade passada pelo formulario para o banco, atraves do save
+
+        return "redirect:/mod/habilidades";
     }
     @GetMapping("/minhasvagas") // isso aqui ta funcionando direito
     public String pageMyVagas(Model model, Authentication auth){

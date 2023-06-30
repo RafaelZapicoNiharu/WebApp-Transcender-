@@ -11,7 +11,7 @@
         <div class="second-half">
             <h2 style="font-family: 'Courgette', sans-serif; text-align: center;">Criando vagas!</h2>
 
-            <form action="" method="POST" class="form-login">
+            <form th:action="@{/mod/habilidades/save}" th:object="${vaga}"  method="POST" class="form-login">
                 <label for="titulo">Título</label>
                 <input type="text" id="titulo" name="titulo" required>
 
